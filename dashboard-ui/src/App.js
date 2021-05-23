@@ -1,18 +1,37 @@
 import React, { Component } from 'react'
+import BarGraph from './components/BarGraph'
 import './App.css';
 
+
+let baseURL = 'http://localhost:8000/'
 
 class App extends Component {
   constructor() {
     super()
+    this.state = {
+      reports: []
+    }
 
   }
 
 
 // pass in date to search?
 getReports = (date) => {
-  console.log('getSales called...')
+  console.log('getReports called...')
   console.log('Date param passed in: ', date)
+  fetch(baseURL + 'api/v1/reports/')//<----NEEDED A BACKSLASH!!!???
+    .then(response => {
+      console.log(response)
+      return response.json()
+    }).then(data=> {
+      // console.log(data)
+      this.setState({
+        reports: data.data
+      })
+    })
+
+
+
 }
 
 
@@ -21,6 +40,8 @@ componentDidMount() {
 }
 
 render(){
+
+console.log(this.state.reports)
     return (
       <div className='mainContainer'>
           <nav>
@@ -35,6 +56,7 @@ render(){
 
           <main className='main2'>
             <h2>BAR GRAPH HERE...</h2>
+            <BarGraph reports={this.state.reports}/>
           </main>
 
           <div id='sideBar'>
