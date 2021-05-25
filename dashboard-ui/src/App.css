@@ -14,7 +14,7 @@
     "sideBar main2 main2 content1"
     "sideBar content2 content3 content4"
     "sideBar footer footer footer";
-  grid-gap: .2rem;
+  grid-gap: .4rem;
 }
 
 nav {

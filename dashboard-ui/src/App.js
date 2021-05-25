@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BarGraph from './components/BarGraph'
+import RetailWholesaleBox from './components/RetailWholesaleBox'
 import './App.css';
 
 
@@ -49,9 +50,9 @@ console.log(this.state.reports)
           </nav>
 
           <main className='main1'>
-            <h2>TOTAL:</h2>
-            <div id='retailSales'>Net Retail Sales:</div>
-            <div id='wholesale'>Net Wholesale:</div>
+
+            <RetailWholesaleBox reports={this.state.reports}/>
+
           </main>
 
           <main className='main2'>

@@ -11,10 +11,7 @@ const postmates = props.reports.filter(report=> report.vendor === 'Postmates')
 const grubhub = props.reports.filter(report=> report.vendor === 'Grubhub')
 
 const doorDashTotal = doorDash.map(item=> {
-  let ddItem = item.subtotal
-  let no$ = ddItem.replace('$', '')
-  let number = parseFloat(no$)
-  return number
+  return item.subtotal
 }).reduce((acc, curr) => acc + curr, 0)
 console.log(doorDashTotal)
 
@@ -38,9 +35,9 @@ console.log(grubhubTotal)
     <>
       <ul>
         <li>DOORDASH SALES: ${doorDashTotal}</li>
-        <li>UBEREATS SALES: ----------${uberEatsTotal}</li>
-        <li>POSTMATES SALES: -------------${postmatesTotal}</li>
-        <li>GRUBHUB SALES: --------${grubhubTotal}</li>
+        <li>UBEREATS SALES: ${uberEatsTotal}</li>
+        <li>POSTMATES SALES: ${postmatesTotal}</li>
+        <li>GRUBHUB SALES: ${grubhubTotal}</li>
       </ul>
     </>
   )
