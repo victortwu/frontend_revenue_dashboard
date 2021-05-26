@@ -16,15 +16,21 @@ const totalWholesale = wholesale.map(report=> {
   return report.subtotal
 }).reduce((acc, curr)=> acc + curr, 0)
 
+const commission = wholesale.map(report=> {
+  return report.commission
+}).reduce((acc, curr)=> acc + curr, 0)
+
+const wholesaleToReport = totalWholesale + commission
+
 
   return(
     <>
 
-        <div id='retailSales'>Total Net Retail Sales:
-            <h2>${totalRetail}</h2>
+        <div id='retailSales'>Total Net Retail Sales To Report:
+            <h2>${totalRetail.toFixed(2)}</h2>
         </div>
-        <div id='wholesale'>Total Net Wholesale:
-            <h2>${totalWholesale}</h2>
+        <div id='wholesale'>Total Net Wholesale to Report:
+            <h2>${wholesaleToReport.toFixed(2)}</h2>
         </div>
     </>
   )

@@ -34,10 +34,10 @@ console.log(grubhubTotal)
   return(
     <>
       <ul>
-        <li>DOORDASH SALES: ${doorDashTotal}</li>
-        <li>UBEREATS SALES: ${uberEatsTotal}</li>
-        <li>POSTMATES SALES: ${postmatesTotal}</li>
-        <li>GRUBHUB SALES: ${grubhubTotal}</li>
+        <li>DOORDASH SALES: ${doorDashTotal.toFixed(2)}</li>
+        <li>UBEREATS SALES: ${uberEatsTotal.toFixed(2)}</li>
+        <li>POSTMATES SALES: ${postmatesTotal.toFixed(2)}</li>
+        <li>GRUBHUB SALES: ${grubhubTotal.toFixed(2)}</li>
       </ul>
     </>
   )
