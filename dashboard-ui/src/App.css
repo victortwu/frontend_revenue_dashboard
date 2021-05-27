@@ -4,8 +4,15 @@
 :root {
   /* variables and main font and color here */
   --neonGreen: #39FF14;
+  --neonGreenRGB: 57, 255, 20;
   --neonOrange: #ff6700;
   --neonBlue: #15f4ee;
+  --neonBlueRGB: 21, 244, 238;
+  --neonYellow: #fff300;
+  --neonYellowRGB: 255, 243, 0;
+  --magenta: #ff44cc;
+  --magentaRGB: 255, 68, 204;
+
   --clearFade: rgba(255,255,255,.1);
   --fadedPurple: rgba(72,50,168,.5);
   --soundwaveBlue: rgba(37, 43, 153,.7);
@@ -90,12 +97,58 @@ nav {
 
 .main2 {
   grid-area: main2;
+  display: flex;
   background: var(--clearFade);
   backdrop-filter: blur(.05em);
   box-shadow: 0rem 0rem .4rem rgba(0,0,0,.5);
   border: solid 1px rgba(255,255,255,.2);
   border-radius: .5em;
 }
+
+.svgWrapper {
+  height: 12rem;
+  width: 13rem;
+  margin: 1rem
+}
+
+.legendWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.legendWrapper > div {
+  padding: .3em;
+  border-radius: .2em;
+  color: white
+}
+
+.legendWrapper > div > h6 {
+
+  margin: 0;
+}
+
+.legendWrapper > div > p {
+  margin: 0;
+}
+
+#ddLegend {
+  background: rgba(var(--magentaRGB), .6)
+}
+
+#ueLegend {
+  background: rgba(var(--neonYellowRGB), .6)
+}
+
+#pmLegend {
+  background: rgba(var(--neonGreenRGB), .6)
+}
+
+#ghLegend {
+  background: rgba(var(--neonBlueRGB), .6)
+
+}
+
 
 #sideBar {
   grid-area: sideBar;
