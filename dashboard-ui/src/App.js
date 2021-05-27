@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import BarGraph from './components/BarGraph'
 import RetailWholesaleBox from './components/RetailWholesaleBox'
+import Uploader from './components/Uploader'
+import Soundwave from './components/Soundwave'
 import './App.css';
 
 
@@ -46,12 +48,17 @@ console.log(this.state.reports)
     return (
       <div className='mainContainer'>
           <nav>
-
+              <ul className='navUl'>
+                  <li>Log In</li>
+                  <li>Register</li>
+                  <li>Change Theme</li>
+              </ul>
           </nav>
 
           <main className='main1'>
 
             <RetailWholesaleBox reports={this.state.reports}/>
+            <Soundwave/>
 
           </main>
 
@@ -61,7 +68,10 @@ console.log(this.state.reports)
           </main>
 
           <div id='sideBar'>
-            <div id='searchBar' onClick={()=> {this.getReports('HOT DATE!')}}>search bar here</div>
+            <div class='sideBarContent'>
+                <div id='searchBar' onClick={()=> {this.getReports('HOT DATE!')}}>search bar here</div>
+                <Uploader/>
+            </div>
           </div>
 
           <div id='content1'>

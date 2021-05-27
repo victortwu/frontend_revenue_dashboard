@@ -24,15 +24,17 @@ const wholesaleToReport = totalWholesale + commission
 
 
   return(
-    <>
+    <div className='salesToReportDiv'>
 
-        <div id='retailSales'>Total Net Retail Sales To Report:
+        <div className='finalTotalDiv'>
+            <h5>Retail Sales To Report:</h5>
             <h2>${totalRetail.toFixed(2)}</h2>
         </div>
-        <div id='wholesale'>Total Net Wholesale to Report:
+        <div className='finalTotalDiv'>
+            <h5>Wholesale Sales To Report:</h5>
             <h2>${wholesaleToReport.toFixed(2)}</h2>
         </div>
-    </>
+    </div>
   )
 }
 
