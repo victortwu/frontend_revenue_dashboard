@@ -3,6 +3,7 @@ import BarGraph from './components/BarGraph'
 import RetailWholesaleBox from './components/RetailWholesaleBox'
 import Uploader from './components/Uploader'
 import Soundwave from './components/Soundwave'
+import CalendarSearchBar from './components/CalendarSearchBar'
 import './App.css';
 
 
@@ -19,10 +20,10 @@ class App extends Component {
 
 
 // pass in date to search?
-getReports = (date) => {
+getReports = (dates) => {
   console.log('getReports called...')
-  console.log('Date param passed in: ', date)
-  fetch(baseURL + 'api/v1/reports/')//<----NEEDED A BACKSLASH!!!???
+  console.log('Date param passed in: ', dates)
+  fetch(baseURL + 'api/v1/reports/' + dates)//<----NEEDED A BACKSLASH!!!???
     .then(response => {
       console.log(response)
       return response.json()
@@ -44,7 +45,7 @@ componentDidMount() {
 
 render(){
 
-console.log(this.state.reports)
+// console.log(this.state.reports)
     return (
       <div className='mainContainer'>
           <nav>
@@ -71,7 +72,8 @@ console.log(this.state.reports)
           <div id='sideBar'>
             <div class='sideBarContent'>
                 <div id='searchBar' onClick={()=> {this.getReports('HOT DATE!')}}>search bar here</div>
-                <Uploader/>
+                <CalendarSearchBar reports={this.state.reports} getReports={this.getReports}/>
+                <Uploader getReports={this.getReports}/>
             </div>
           </div>
 

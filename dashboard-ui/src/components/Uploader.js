@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Dropzone from 'react-dropzone';
 
 class Uploader extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onDrop = (files) => {
       this.setState({files})
     };
@@ -25,7 +25,8 @@ uploadToAPI = (file) => {
     this.setState({
       files: []
     })
-  }).catch(err => console.error({'Error: ': err}))
+  }).then(()=> this.props.getReports())
+  .catch(err => console.error({'Error': err}))
 
 
 
