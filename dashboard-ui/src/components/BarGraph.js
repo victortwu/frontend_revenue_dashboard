@@ -34,21 +34,21 @@ const BarGraph =(props)=> {
   let postmatesHeight = Math.floor(((postmatesTotal / 100) * 3.75) + 5)
   let grubhubHeight = Math.floor(((grubhubTotal / 100) * 3.75) + 5)
 
-  if ( doorDashHeight > 100 ) {
-    doorDashHeight = 100
-  }
+    if ( doorDashHeight > 100 ) {
+      doorDashHeight = 100
+    }
 
-  if ( uberEatsHeight > 100 ) {
-    uberEatsHeight = 100
-  }
+    if ( uberEatsHeight > 100 ) {
+      uberEatsHeight = 100
+    }
 
-  if ( postmatesHeight > 100 ) {
-    postmatesHeight = 100
-  }
+    if ( postmatesHeight > 100 ) {
+      postmatesHeight = 100
+    }
 
-  if ( grubhubHeight > 100 ) {
-    grubhubHeight = 100
-  }
+    if ( grubhubHeight > 100 ) {
+      grubhubHeight = 100
+    }
 
   const ddY = 100 - doorDashHeight
   const ueY = 100 - uberEatsHeight
@@ -64,10 +64,10 @@ const BarGraph =(props)=> {
         height='100%'
         preserveAspectRatio='xMidYMax meet'
         >
-          <rect fill='#ff44cc' fill-opacity='.7' x='15%' y={ddY} width='10%' height={doorDashHeight}/>
-          <rect fill='#fff300' fill-opacity='.7' x='35%' y={ueY} width='10%' height={uberEatsHeight}/>
-          <rect fill='#39FF14' fill-opacity='.7' x='55%' y={pmY} width='10%' height={postmatesHeight}/>
-          <rect fill='#15f4ee' fill-opacity='.7' x='75%' y={ghY} width='10%' height={grubhubHeight}/>
+          <rect fill='#ff44cc' fill-opacity='.7' x='15%' y={ddY} width='8%' height={doorDashHeight}/>
+          <rect fill='#fff300' fill-opacity='.7' x='35%' y={ueY} width='8%' height={uberEatsHeight}/>
+          <rect fill='#39FF14' fill-opacity='.7' x='55%' y={pmY} width='8%' height={postmatesHeight}/>
+          <rect fill='#15f4ee' fill-opacity='.7' x='75%' y={ghY} width='8%' height={grubhubHeight}/>
       </svg>
     </div>
 
