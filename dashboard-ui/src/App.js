@@ -65,7 +65,7 @@ console.log(this.state.reports)
           <main className='main2'>
 
                 <BarGraph reports={this.state.reports}/>
-            
+
           </main>
 
           <div id='sideBar'>

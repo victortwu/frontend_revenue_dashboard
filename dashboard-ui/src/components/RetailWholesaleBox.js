@@ -19,7 +19,7 @@ const totalWholesale = wholesale.map(report=> {
 const commission = wholesale.map(report=> {
   return report.commission
 }).reduce((acc, curr)=> acc + curr, 0)
-
+// NEED TO ADD FEES !!!
 const wholesaleToReport = totalWholesale + commission
 
 
