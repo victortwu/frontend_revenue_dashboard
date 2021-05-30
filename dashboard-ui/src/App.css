@@ -84,16 +84,21 @@ nav {
 
 }
 
-.soundwaveContainer {
+#soundwaveContainer {
+  background-image: url('./images/soundwave-standing.png');
+  display: block;
+  background-size: contain;
   margin: 1.5rem;
   width: 15rem;
-  height: 15rem
+  height: 15rem;
+  /* animation: transformToTapeRecorder 10s linear forwards; */
+  animation: none;
 }
 
-.soundwaveContainer > img {
+/* .soundwaveContainer > img {
   width: 15rem;
   height: 15rem
-}
+} */
 
 .main2 {
   grid-area: main2;
@@ -207,8 +212,41 @@ footer {
   border-radius: .5em;
 }
 
+@keyframes transformToTapeRecorder {
+  20% {
+    background-image: url('./images/soundwave-boombox.png');
+  }
+  40% {
+    background-image: url('./images/soundwave-standing.png');
+  }
+  60% {
+    background-image: url('./images/soundwave-boombox.png');
+  }
+  80% {
+    background-image: url('./images/soundwave-standing.png');
+  }
+  100% {
+    background-image: url('./images/soundwave-boombox.png');
+  }
+}
 
-
+@keyframes transformToRobot {
+  20% {
+    background-image: url('./images/soundwave-standing.png');
+  }
+  40% {
+    background-image: url('./images/soundwave-boombox.png');
+  }
+  60% {
+    background-image: url('./images/soundwave-standing.png');
+  }
+  80% {
+    background-image: url('./images/soundwave-boombox.png');
+  }
+  100% {
+    background-image: url('./images/soundwave-standing.png');
+  }
+}
 
 @media only screen and (max-width:500px) {
   .mainContainer {

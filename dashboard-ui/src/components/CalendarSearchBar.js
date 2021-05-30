@@ -5,13 +5,13 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 
 const CalendarSearchBar = (props) => {
-
+  
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
 
-  const submitDate =(dates)=> {
-    console.log('Submitting this date range: ', dates)
-    fetch('http://localhost:8000/')
+  const submitDate =(date1, date2)=> {
+    console.log('Submitting this date range: ', date1, date2)
+
 
   }
 
@@ -29,7 +29,7 @@ const CalendarSearchBar = (props) => {
 
     <button onClick={
       ()=> {
-        submitDate(dateRange)
+        submitDate(startDate, endDate)
         props.getReports(dateRange)
       }
 

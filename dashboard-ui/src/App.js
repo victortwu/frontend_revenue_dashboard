@@ -21,8 +21,8 @@ class App extends Component {
 
 // pass in date to search?
 getReports = (dates) => {
-  console.log('getReports called...')
-  console.log('Date param passed in: ', dates)
+  console.log('DATES: ', dates)
+  
   fetch(baseURL + 'api/v1/reports/' + dates)//<----NEEDED A BACKSLASH!!!???
     .then(response => {
       console.log(response)
