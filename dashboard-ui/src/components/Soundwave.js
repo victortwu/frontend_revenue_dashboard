@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import soundwaveStanding from '../images/soundwave-standing.png'
 import transforming from '../images/transforming.mp3'
 
 

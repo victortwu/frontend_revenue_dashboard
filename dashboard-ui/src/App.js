@@ -22,7 +22,7 @@ class App extends Component {
 // pass in date to search?
 getReports = (dates) => {
   console.log('DATES: ', dates)
-  
+
   fetch(baseURL + 'api/v1/reports/' + dates)//<----NEEDED A BACKSLASH!!!???
     .then(response => {
       console.log(response)
@@ -71,7 +71,7 @@ render(){
 
           <div id='sideBar'>
             <div class='sideBarContent'>
-                <div id='searchBar' onClick={()=> {this.getReports('HOT DATE!')}}>search bar here</div>
+                
                 <CalendarSearchBar reports={this.state.reports} getReports={this.getReports}/>
                 <Uploader getReports={this.getReports}/>
             </div>

@@ -5,35 +5,34 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 
 const CalendarSearchBar = (props) => {
-  
+
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
 
-  const submitDate =(date1, date2)=> {
-    console.log('Submitting this date range: ', date1, date2)
 
-
-  }
 
   return (
     <>
-    <DatePicker
-      selectsRange={true}
-      startDate={startDate}
-      endDate={endDate}
-      onChange={(update) => {
-        setDateRange(update);
-      }}
-      isClearable={true}
-    />
+    <div className='searchBarContainer'>
+    <h5>SEARCH BY DATE RANGE</h5>
+      <DatePicker
+        selectsRange={true}
+        startDate={startDate}
+        endDate={endDate}
+        onChange={(update) => {
+          setDateRange(update);
+        }}
+        isClearable={true}
+        
+      />
+      <button onClick={
+        ()=> {
+          props.getReports(dateRange)
+        }
 
-    <button onClick={
-      ()=> {
-        submitDate(startDate, endDate)
-        props.getReports(dateRange)
-      }
+      }>submit</button>
+    </div>
 
-    }>submit</button>
     </>
   );
 

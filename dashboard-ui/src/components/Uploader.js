@@ -25,10 +25,10 @@ uploadToAPI = (file) => {
     this.setState({
       files: []
     })
-  }).then(()=> this.props.getReports())
-  .catch(err => console.error({'Error': err}))
+  }).catch(err => console.error({'Error': err}))
 
 
+// .then(()=> this.props.getReports())
 
 }
 
@@ -41,7 +41,7 @@ uploadToAPI = (file) => {
         {file.name} - {file.size} bytes
         <button onClick={()=> {
                                 this.uploadToAPI(file.path)
-                                console.log('A second expression')
+
                               }
                               }>upload</button>
       </li>
@@ -50,13 +50,14 @@ uploadToAPI = (file) => {
     return (
       <Dropzone onDrop={this.onDrop}>
         {({getRootProps, getInputProps}) => (
-          <section className="container">
+          <section className="uploadContainer">
+          <h5>UPLOAD CSV FILES</h5>
             <div {...getRootProps({className: 'dropzone'})}>
               <input {...getInputProps()} />
-              <p>Drag 'n' drop some files here, or click to select files</p>
+              <p>Drag 'n' drop or click to select</p>
             </div>
             <aside>
-              <h4>Files</h4>
+              <h5>COMPLIANT FILES ONLY</h5>
               <ul>{files}</ul>
             </aside>
           </section>
