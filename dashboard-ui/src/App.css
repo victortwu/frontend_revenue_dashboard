@@ -84,7 +84,7 @@ nav {
   text-align: center;
   backdrop-filter: blur(.4rem);
   box-shadow: 0rem 0rem .4rem rgba(0,0,0,.2);
-
+  border-radius: .5em;
 }
 
 .finalTotalDiv > h2 {
@@ -114,11 +114,6 @@ nav {
   color: var(--neonBlue);
 }
 
-#transformButton:hover {
-    background: var(--magenta);
-    opacity: .5;
-    cursor: pointer;
-}
 
 .main2 {
   grid-area: main2;
@@ -181,6 +176,13 @@ nav {
 
 .content3and4Container > h5 {
   margin: .7em;
+}
+
+.tipsContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  opacity: .7;
 }
 
 #totalSpan {
@@ -288,7 +290,7 @@ footer {
   border-radius: .5em;
 }
 
-button:hover {
+#transformButton button:hover {
   background: var(--magenta);
   opacity: .5;
   cursor: pointer;

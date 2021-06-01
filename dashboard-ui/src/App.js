@@ -6,6 +6,7 @@ import Soundwave from './components/Soundwave'
 import CalendarSearchBar from './components/CalendarSearchBar'
 import FeesCommission from './components/FeesCommission'
 import AverageTicket from './components/AverageTicket'
+import Tips from './components/Tips'
 import './App.css';
 
 
@@ -88,7 +89,7 @@ render(){
           </div>
 
           <div id='content3'>
-            something here
+            <Tips reports={this.state.reports} />
           </div>
 
           <div id='content4'>
