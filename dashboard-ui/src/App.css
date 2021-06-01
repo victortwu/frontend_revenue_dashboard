@@ -62,20 +62,81 @@ nav {
 .navUl > li:hover {
   color: var(--magenta);
   opacity: .5;
+  transition: .5s;
   cursor: pointer;
+}
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+.diplayShow {
+  display: block;
+}
+
+.displayNone {
+  display: none;
+}
+
+.modalContainer {
+  display: flex;
+  margin-top: 5rem;
+}
+
+.formDiv {
+  background-color: rgba(255,255,255,.1);
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  padding: 1rem;
+  width: 75%;
+  border: solid .1em white;
+  border-radius: .5em;
+  color: white;
+  
+}
+
+.formDiv > form > input {
+  border: none;
+  width: 95%;
+}
+
+#addEditBtn {
+  margin-top: .5em;
+  background: none;
+  border: solid .1em white;
+  border-radius: .2em;
+  font-family: sans-serif;
+  color: white
+}
+
+#xCloseBtn {
+  margin-top: .5em;
+  background-color: rgba(255, 255, 255, .5);
+  border: none;
+  border-radius: 50%;
+  color: white;
 }
 
 .main1 {
   grid-area: main1;
   display: flex;
+
   background: var(--clearFade);
   backdrop-filter: blur(.2rem);
   box-shadow: 0rem 0rem .4rem rgba(0,0,0,.5);
   border: solid 1px rgba(255,255,255,.2);
   border-radius: .5em;
+
 }
 
 .salesToReportDiv {
+  grid-area: reportDiv;
   width: 40%;
   margin: 3%;
   padding: 1rem;
@@ -94,24 +155,28 @@ nav {
 
 #soundwaveContainer {
   background-image: url('./images/soundwave_standing.png');
-  display: absolute;
-  top: 0;
+  display: block;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100vh;
+  width: 80vh;
   animation: none;
+
 }
 
 #transformButton {
-  margin-top: 1em;
-  margin-right: 1em;
-  height: 4em;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 6em;
   width: 10em;
   font-size: .5em;
   background: none;
   border: solid 1px var(--neonBlue);
-  border-radius: .1em;
+  border-radius: .5em;
   color: var(--neonBlue);
+  opacity: .7;
 }
 
 
@@ -153,19 +218,19 @@ nav {
 }
 
 #ddLegend {
-  background: rgba(var(--magentaRGB), .6)
+  background: rgba(var(--magentaRGB), .5)
 }
 
 #ueLegend {
-  background: rgba(var(--neonYellowRGB), .6)
+  background: rgba(var(--neonYellowRGB), .5)
 }
 
 #pmLegend {
-  background: rgba(var(--neonGreenRGB), .6)
+  background: rgba(var(--neonGreenRGB), .5)
 }
 
 #ghLegend {
-  background: rgba(var(--neonBlueRGB), .6)
+  background: rgba(var(--neonBlueRGB), .5)
 
 }
 
@@ -257,11 +322,25 @@ nav {
 
 #content2 {
   grid-area: content2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--clearFade);
   backdrop-filter: blur(.3rem);
   box-shadow: 0rem 0rem .4rem rgba(0,0,0,.5);
   border: solid 1px rgba(255,255,255,.2);
   border-radius: .5em;
+}
+
+#content2 > button {
+  height: 3em;
+  border: none;
+  background: none;
+  color: var(--neonBlue);
+  border: solid 1px var(--neonBlue);
+  border-radius: .3em;
+  font-weight: bold;
+  opacity: .7;
 }
 
 #content3 {
@@ -284,17 +363,39 @@ nav {
 
 footer {
   grid-area: footer;
+  text-align: center;
   background: var(--soundwaveBlue);
   box-shadow: 0rem 0rem .4rem rgba(0,0,0,.5);
+  color: gray;
+  letter-spacing: .4em;
   border: solid 1px rgba(255,255,255,.2);
   border-radius: .5em;
 }
 
-#transformButton button:hover {
-  background: var(--magenta);
+/* ====== HOVER EFFECTS ======= */
+
+.salesToReportDiv:hover,
+.main2:hover,
+#content1:hover,
+#content2:hover,
+#content3:hover,
+#content4:hover {
+  box-shadow: 0rem 0rem .7rem var(--neonGreen);
+  transition: .5s;
+}
+
+button:hover,
+#transformButton:hover,
+#content2 > button:hover {
+  color: #e6e2c5;
+  background: var(--neonBlue);
   opacity: .5;
+  transition: .5s;
   cursor: pointer;
 }
+
+
+/* ====== ANIMATIONS ======= */
 
 @keyframes transformToTapeRecorder {
   20% {
@@ -335,12 +436,12 @@ footer {
 @media only screen and (max-width:500px) {
   .mainContainer {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 2fr 2fr 1fr 1fr 1fr 1fr 0.4fr;
+    grid-template-rows: .4fr .4fr 1fr 1fr 1fr 1fr 1fr 1fr 0.4fr;
     grid-template-areas:
       'nav'
+      'sideBar'
       'main1'
       'main2'
-      'sideBar'
       'content1'
       'content2'
       'content3'

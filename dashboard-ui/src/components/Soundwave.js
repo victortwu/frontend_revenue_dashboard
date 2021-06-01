@@ -44,22 +44,25 @@ class Soundwave extends Component {
         <source src={transforming}></source>
       </audio>
 
+      {
+        (this.state.robot)
+        ? <div id='transformButton' onClick={()=> {
+          this.playSound()
+          this.transform(transformToTapeRecorder)
+          this.toggleFalse()
+        }}><div>TRANS</div><div>FORM</div></div>
+
+        : <div id='transformButton' onClick={()=> {
+          this.playSound()
+          this.transform(transformToRobot)
+          this.toggleTrue()
+        }}><div>TRANS</div><div>FORM</div></div>
+
+      }
+
+
       <div id='soundwaveContainer'></div>
-            {
-              (this.state.robot)
-              ? <button id='transformButton' onClick={()=> {
-                this.playSound()
-                this.transform(transformToTapeRecorder)
-                this.toggleFalse()
-              }}>TRANSFORM</button>
 
-              : <button id='transformButton' onClick={()=> {
-                this.playSound()
-                this.transform(transformToRobot)
-                this.toggleTrue()
-              }}>TRANSFORM</button>
-
-            }
 
       </>
       )

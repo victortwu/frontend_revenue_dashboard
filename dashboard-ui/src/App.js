@@ -7,6 +7,8 @@ import CalendarSearchBar from './components/CalendarSearchBar'
 import FeesCommission from './components/FeesCommission'
 import AverageTicket from './components/AverageTicket'
 import Tips from './components/Tips'
+import Login from './components/Login'
+import Register from './components/Register'
 import './App.css';
 
 
@@ -16,26 +18,60 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      reports: []
+      reports: [],
+      showLogInForm: false,
+      showRegisterForm: false,
+      userId: -1,
     }
 
   }
 
-
-// pass in date to search?
-getReports = (dates) => {
-  console.log('DATES: ', dates)
-
-  fetch(baseURL + 'api/v1/reports/' + dates)//<----NEEDED A BACKSLASH!!!???
-    .then(response => {
-      console.log(response)
-      return response.json()
-    }).then(data=> {
-      // console.log(data)
-      this.setState({
-        reports: data.data
-      })
+  openLoginForm = () => {
+    this.setState({
+      showLogInForm: true
     })
+  }
+
+  closeLoginForm = () => {
+    this.setState({
+      showLogInForm: false
+    })
+  }
+
+  openRegisterForm = () => {
+    this.setState({
+      showRegisterForm: true
+    })
+  }
+
+  closeRegisterForm = () => {
+    this.setState({
+      showRegisterForm: false
+    })
+  }
+
+  setOwnerId = (data) => {
+    console.log('setOwnerId() called: --> ', data)
+    this.setState({
+      userId: data.data.id,
+      welcomeName: data.data.username
+    })
+  }
+
+
+  getReports = (dates) => {
+    console.log('DATES: ', dates)
+
+    fetch(baseURL + 'api/v1/reports/' + dates)//<----NEEDED A BACKSLASH!!!???
+      .then(response => {
+        console.log(response)
+        return response.json()
+      }).then(data=> {
+        // console.log(data)
+        this.setState({
+          reports: data.data
+        })
+      })
 
 
 
@@ -51,13 +87,15 @@ render(){
 // console.log(this.state.reports)
     return (
       <div className='mainContainer'>
+
           <nav>
               <ul className='navUl'>
-                  <li>Log In</li>
-                  <li>Register</li>
+                  <li onClick={() => this.openLoginForm()}>Log In</li>
+                  <li onClick={() => this.openRegisterForm()}>Register</li>
                   <li>Change Theme</li>
               </ul>
           </nav>
+
 
           <main className='main1'>
 
@@ -85,7 +123,7 @@ render(){
           </div>
 
           <div id='content2'>
-            tips by vendor
+            <button>GET BEER</button>
           </div>
 
           <div id='content3'>
@@ -96,7 +134,20 @@ render(){
             <AverageTicket reports={this.state.reports} />
           </div>
 
-          <footer></footer>
+          <footer>
+            <h5>BUILT BY VICTOR TWU -- JUNE, 2021</h5>
+          </footer>
+          <Login
+              closeLoginForm={this.closeLoginForm}
+              showLogInForm={this.state.showLogInForm}
+              baseURL={baseURL}
+              setOwnerId={this.setOwnerId}
+          />
+          <Register
+              closeRegisterForm={this.closeRegisterForm}
+              showRegisterForm={this.state.showRegisterForm}
+              baseURL={baseURL}
+          />
       </div>
     );
   }
