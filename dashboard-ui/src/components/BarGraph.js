@@ -29,10 +29,10 @@ const BarGraph =(props)=> {
 
 
   //----- CONVERT SUBTOTALS TO VALUES FOR SVG HEIGHT VALUES ------
-  let doorDashHeight = Math.floor(((doorDashTotal / 100) * 3.75) + 5)
-  let uberEatsHeight = Math.floor(((uberEatsTotal / 100) * 3.75) + 5)
-  let postmatesHeight = Math.floor(((postmatesTotal / 100) * 3.75) + 5)
-  let grubhubHeight = Math.floor(((grubhubTotal / 100) * 3.75) + 5)
+  let doorDashHeight = Math.floor(((doorDashTotal / 100) * 3.75) + 1)
+  let uberEatsHeight = Math.floor(((uberEatsTotal / 100) * 3.75) + 1)
+  let postmatesHeight = Math.floor(((postmatesTotal / 100) * 3.75) + 1)
+  let grubhubHeight = Math.floor(((grubhubTotal / 100) * 3.75) + 1)
 
     if ( doorDashHeight > 100 ) {
       doorDashHeight = 100

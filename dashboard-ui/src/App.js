@@ -5,6 +5,7 @@ import Uploader from './components/Uploader'
 import Soundwave from './components/Soundwave'
 import CalendarSearchBar from './components/CalendarSearchBar'
 import FeesCommission from './components/FeesCommission'
+import AverageTicket from './components/AverageTicket'
 import './App.css';
 
 
@@ -91,7 +92,7 @@ render(){
           </div>
 
           <div id='content4'>
-            something here
+            <AverageTicket reports={this.state.reports} />
           </div>
 
           <footer></footer>

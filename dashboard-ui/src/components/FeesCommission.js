@@ -31,7 +31,7 @@ const FeesCommission = (props) => {
 
     return(
       <>
-      <div className='commissionsContainer'>
+      <div className='content3and4Container'>
       <h4>Fees & Commission</h4>
       <h4>Total: <span id='totalSpan'>{totalCommission.toFixed(2)}</span></h4>
 
@@ -39,7 +39,7 @@ const FeesCommission = (props) => {
           <h5>UBEREATS: <span id='totalSpan'>{uberEatsTotal.toFixed(2)}</span></h5>
           <h5>POSTMATES: <span id='totalSpan'>{postmatesTotal.toFixed(2)}</span></h5>
           <h5>GRUBHUB: <span id='totalSpan'>{grubhubTotal.toFixed(2)}</span></h5>
-        
+
       </div>
       </>
     )

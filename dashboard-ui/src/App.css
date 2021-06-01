@@ -94,12 +94,11 @@ nav {
 
 #soundwaveContainer {
   background-image: url('./images/soundwave_standing.png');
-  display: block;
+  display: absolute;
+  top: 0;
   background-size: contain;
   background-repeat: no-repeat;
-
   width: 100vh;
-  /* height: 100vh; */
   animation: none;
 }
 
@@ -175,12 +174,12 @@ nav {
 
 }
 
-.commissionsContainer {
+.content3and4Container {
   text-align: center;
   opacity: .7;
 }
 
-.commissionsContainer > h5 {
+.content3and4Container > h5 {
   margin: .7em;
 }
 
@@ -188,7 +187,9 @@ nav {
   color: red;
 }
 
-
+#avgTicketH1 {
+  color: var(--neonBlue);
+}
 
 #sideBar {
   grid-area: sideBar;
