@@ -4,6 +4,7 @@ import RetailWholesaleBox from './components/RetailWholesaleBox'
 import Uploader from './components/Uploader'
 import Soundwave from './components/Soundwave'
 import CalendarSearchBar from './components/CalendarSearchBar'
+import FeesCommission from './components/FeesCommission'
 import './App.css';
 
 
@@ -71,14 +72,14 @@ render(){
 
           <div id='sideBar'>
             <div class='sideBarContent'>
-                
+
                 <CalendarSearchBar reports={this.state.reports} getReports={this.getReports}/>
                 <Uploader getReports={this.getReports}/>
             </div>
           </div>
 
           <div id='content1'>
-            fees/commission
+            <FeesCommission reports={this.state.reports} />
           </div>
 
           <div id='content2'>
