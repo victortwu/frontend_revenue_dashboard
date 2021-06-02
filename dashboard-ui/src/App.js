@@ -9,6 +9,9 @@ import AverageTicket from './components/AverageTicket'
 import Tips from './components/Tips'
 import Login from './components/Login'
 import Register from './components/Register'
+import CompliantFilesInfo from './components/CompliantFilesInfo'
+import AppInfo from './components/AppInfo'
+import GetBeer from './components/GetBeer'
 import './App.css';
 
 
@@ -21,6 +24,9 @@ class App extends Component {
       reports: [],
       showLogInForm: false,
       showRegisterForm: false,
+      showCompFilesInfo: false,
+      showAppInfo: false,
+      showCoorsError: false,
       userId: -1,
       welcomeName: ''
     }
@@ -51,7 +57,43 @@ class App extends Component {
     })
   }
 
-  setOwnerId = (data) => {
+  openCompFilesInfo = () => {
+    this.setState({
+      showCompFilesInfo: true
+    })
+  }
+
+  closeCompFilesInfo = () => {
+    this.setState({
+      showCompFilesInfo: false
+    })
+  }
+
+  openAppInfo = () => {
+    this.setState({
+      showAppInfo: true
+    })
+  }
+
+  closeAppInfo = () => {
+    this.setState({
+      showAppInfo: false
+    })
+  }
+
+  openCoorsError = () => {
+    this.setState({
+      showCoorsError: true
+    })
+  }
+
+  closeCoorsError = () => {
+    this.setState({
+      showCoorsError: false
+    })
+  }
+
+  setUserId = (data) => {
     console.log('setOwnerId() called: --> ', data)
     this.setState({
       userId: data.data.id,
@@ -105,19 +147,17 @@ console.log(this.state.userId)
               {
                 (this.state.userId !== -1)
                 ? <>
-                    <li onClick={()=> this.logOut()}>Log Out</li>
-                    <li>Hi <span id='welcomeName'>{this.state.welcomeName}!</span></li>
+                    <li onClick={()=> this.logOut()}>LOG OUT</li>
+                    <li>HI <span id='welcomeName'>{this.state.welcomeName}!</span></li>
                   </>
 
                 : <>
-                    <li onClick={() => this.openLoginForm()}>Log In</li>
-                    <li onClick={() => this.openRegisterForm()}>Register</li>
+                    <li onClick={() => this.openLoginForm()}>LOG IN</li>
+                    <li onClick={() => this.openRegisterForm()}>REGISTER</li>
                   </>
               }
 
-
-
-
+                  <li onClick={() => this.openAppInfo()}>ABOUT THIS APP</li>
                   <li>Change Theme</li>
               </ul>
           </nav>
@@ -140,7 +180,7 @@ console.log(this.state.userId)
             <div class='sideBarContent'>
               <div className={toggleClass}>
                 <CalendarSearchBar reports={this.state.reports} getReports={this.getReports}/>
-                <Uploader getReports={this.getReports}/>
+                <Uploader openCompFilesInfo={this.openCompFilesInfo} getReports={this.getReports}/>
               </div>
             </div>
           </div>
@@ -150,7 +190,7 @@ console.log(this.state.userId)
           </div>
 
           <div id='content2'>
-            <button>GET BEER</button>
+            <button onClick={this.openCoorsError}>fetch( beer )</button>
           </div>
 
           <div id='content3'>
@@ -169,12 +209,24 @@ console.log(this.state.userId)
               closeLoginForm={this.closeLoginForm}
               showLogInForm={this.state.showLogInForm}
               baseURL={baseURL}
-              setOwnerId={this.setOwnerId}
+              setUserId={this.setUserId}
           />
           <Register
               closeRegisterForm={this.closeRegisterForm}
               showRegisterForm={this.state.showRegisterForm}
               baseURL={baseURL}
+          />
+          <CompliantFilesInfo
+              showCompFilesInfo={this.state.showCompFilesInfo}
+              closeCompFilesInfo={this.closeCompFilesInfo}
+          />
+          <AppInfo
+              showAppInfo={this.state.showAppInfo}
+              closeAppInfo={this.closeAppInfo}
+          />
+          <GetBeer
+              showCoorsError={this.state.showCoorsError}
+              closeCoorsError={this.closeCoorsError}
           />
       </div>
     );

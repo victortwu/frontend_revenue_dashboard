@@ -11,15 +11,20 @@ class Login extends Component {
 
   }
 
+clearForm = () => {
+  let username = document.getElementById('username')
+  let password = document.getElementById('password')
+  username.value = ''
+  password.value = ''
+}
+
 handleUsernameChange =(e)=> {
-  console.log('At email handle change: ', e.target.value)
   this.setState({
     username: e.target.value
   })
 }
 
 handlePasswordChange =(e)=> {
-  console.log('At password handle change: ', e.target.value)
   this.setState({
     password: e.target.value
   })
@@ -39,28 +44,26 @@ handleSubmit = (e) => {
       "Content-type": "application/json"
     }
   }).then(response => {
-    console.log('The response: ', response)
     return response.json()
   }).then(data => {
-    console.log('The data: ', data)
     if(data.status === 401){
       alert(`${data.message}`)
       this.props.logOut()
     } else {
-      this.props.setOwnerId(data)
+      this.props.setUserId(data)
       this.setState({
         username: '',
         password: ''
       })
     }
   }).catch(err=> {console.error('Error: ', err)})
+  this.clearForm()
   this.props.closeLoginForm()
 
 }
 
 render(){
-console.log(this.state.username)
-console.log(this.state.password)
+
 
 const toggleClass = this.props.showLogInForm ? 'displayShow' : 'displayNone'
 
@@ -78,7 +81,10 @@ const toggleClass = this.props.showLogInForm ? 'displayShow' : 'displayNone'
 
                         <button id='submitBtn' type='submit'>LOG IN</button>
                     </form>
-                    <button id='xCloseBtn' onClick={()=> this.props.closeLoginForm()}>X</button>
+                    <button id='xCloseBtn' onClick={()=> {
+                      this.clearForm()
+                      this.props.closeLoginForm()
+                    }}>X</button>
                   </div>
               </div>
           </div>

@@ -11,23 +11,28 @@ class Register extends Component {
     }
   }
 
+clearForm = () => {
+  let username = document.getElementById('registerUsername')
+  let email = document.getElementById('registerEmail')
+  let password = document.getElementById('registerPassword')
+  username.value = ''
+  email.value = ''
+  password.value = ''
+}
 
 handleUsernameChange =(e)=> {
-  console.log(e.target.value)
   this.setState({
     username: e.target.value
   })
 }
 
 handleEmailChange =(e)=> {
-  console.log(e.target.value)
   this.setState({
     email: e.target.value
   })
 }
 
 handlePasswordChange =(e)=> {
-  console.log(e.target.value)
   this.setState({
     password: e.target.value
   })
@@ -77,17 +82,20 @@ const toggleClass = this.props.showRegisterForm ? 'displayShow' : 'displayNone'
                   <div className='formDiv'>
                     <form onSubmit={(e)=> this.handleSubmit(e)}>
                         <label htmlFor='username'>USERNAME:</label>
-                        <input type='text' id='username' name='username' placeholder='Choose a user name.' onChange={(e)=> this.handleUsernameChange(e)} />
+                        <input type='text' id='registerUsername' name='username' placeholder='Choose a user name.' onChange={(e)=> this.handleUsernameChange(e)} />
 
                         <label htmlFor='email'>EMAIL:</label>
-                        <input type='text' id='email' name='email' placeholder='youremail@email.com' onChange={(e)=> this.handleEmailChange(e)} />
+                        <input type='text' id='registerEmail' name='email' placeholder='youremail@email.com' onChange={(e)=> this.handleEmailChange(e)} />
 
                         <label htmlFor='password'>PASSWORD:</label>
-                        <input type='password' id='password' name='password' onChange={(e)=> this.handlePasswordChange(e)} />
+                        <input type='password' id='registerPassword' name='password' onChange={(e)=> this.handlePasswordChange(e)} />
 
-                        <button id='submitBtn' type='submit'>REGISTER</button>
+                        <button id='registerBtn' type='submit'>REGISTER</button>
                     </form>
-                    <button id='xCloseBtn' onClick={()=> this.props.closeRegisterForm()}>X</button>
+                    <button id='xCloseBtn' onClick={()=> {
+                      this.clearForm()
+                      this.props.closeRegisterForm()
+                    }}>X</button>
                   </div>
               </div>
           </div>

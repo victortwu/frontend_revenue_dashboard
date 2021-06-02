@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap');
 
 :root {
   /* variables and main font color here */
@@ -23,9 +23,8 @@
 html {
   background-image: url('./images/background.jpeg');
   /* background-image: linear-gradient(#1b1b2f, black, #e43f5a, #1f4068, #162447); */
-
   background-size: cover;
-  font-family: 'Fira Sans', sans-serif;
+
 }
 
 .mainContainer {
@@ -41,7 +40,7 @@ html {
     "sideBar content2 content3 content4"
     "sideBar footer footer footer";
   grid-gap: 1rem;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   animation: fadeIn 2s;
 }
 
@@ -71,63 +70,6 @@ nav {
   cursor: pointer;
 }
 
-.modalBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  animation: fadeIn 1s;
-}
-
-.diplayShow {
-  display: block;
-}
-
-.displayNone {
-  display: none;
-}
-
-.modalContainer {
-  display: flex;
-  margin-top: 5rem;
-}
-
-.formDiv {
-  background-color: rgba(255,255,255,.1);
-  margin: auto;
-  margin-top: 5rem;
-  margin-bottom: 8rem;
-  padding: 1rem;
-  width: 50%;
-  border: solid .1em white;
-  border-radius: .5em;
-  color: white;
-  animation: fadeIn 1s;
-}
-
-.formDiv > form > input {
-  border: none;
-  width: 95%;
-}
-
-#submitBtn {
-  margin-top: .5em;
-  background: none;
-  border: solid .1em white;
-  border-radius: .2em;
-  font-family: sans-serif;
-  color: white
-}
-
-#xCloseBtn {
-  margin-top: .5em;
-  background-color: rgba(255, 255, 255, .5);
-  border: none;
-  border-radius: 50%;
-  color: white;
-}
 
 .main1 {
   grid-area: main1;
@@ -159,6 +101,8 @@ nav {
 
 }
 
+/* =========== SOUNDWAVE COMPONENT ============= */
+
 #soundwaveContainer {
   background-image: url('./images/soundwave_standing.png');
   display: block;
@@ -185,6 +129,7 @@ nav {
   opacity: .7;
 }
 
+/* =========== BAR GRAPH STYLING ========= */
 
 .main2 {
   grid-area: main2;
@@ -194,12 +139,13 @@ nav {
   box-shadow: 0rem 0rem .4rem rgba(0,0,0,.5);
   border: solid 1px rgba(255,255,255,.2);
   border-radius: .5em;
+  animation: fadeIn 2s;
 }
 
 .svgWrapper {
   height: 12rem;
   width: 13rem;
-  margin: 1rem
+  margin: 1rem;
 }
 
 .legendWrapper {
@@ -211,7 +157,7 @@ nav {
 .legendWrapper > div {
   padding: .3em;
   border-radius: .2em;
-  color: white
+  color: white;
 }
 
 .legendWrapper > div > h6 {
@@ -240,29 +186,7 @@ nav {
 
 }
 
-.content3and4Container {
-  text-align: center;
-  opacity: .7;
-}
-
-.content3and4Container > h5 {
-  margin: .7em;
-}
-
-.tipsContainer {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  opacity: .7;
-}
-
-#totalSpan {
-  color: red;
-}
-
-#avgTicketH1 {
-  color: var(--neonBlue);
-}
+/* =========== SIDEBAR ========== */
 
 #sideBar {
   grid-area: sideBar;
@@ -304,6 +228,8 @@ nav {
   color: #e6e2c5;
 }
 
+/* ======== SIDEBAR COMPONENT STYLING ======= */
+
 .uploadContainer {
   text-align: center;
   animation: fadeIn 3s;
@@ -319,6 +245,8 @@ nav {
   text-align: center;
   opacity: .7;
 }
+
+/* =========== BOTTOM HALF STYLING ========== */
 
 #content1 {
   grid-area: content1;
@@ -380,6 +308,108 @@ footer {
   border-radius: .5em;
 }
 
+.content3and4Container {
+  text-align: center;
+  opacity: .7;
+}
+
+.content3and4Container > h5 {
+  margin: .7em;
+}
+
+.tipsContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  opacity: .7;
+}
+
+#totalSpan {
+  color: red;
+}
+
+#avgTicketH1 {
+  color: var(--neonBlue);
+}
+
+/* ============ MODAL SELECTORS ============ */
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  animation: fadeIn 1s;
+}
+
+.diplayShow {
+  display: block;
+}
+
+.displayNone {
+  display: none;
+}
+
+.modalContainer {
+  display: flex;
+  margin-top: 5rem;
+}
+
+.formDiv {
+  background-color: rgba(255,255,255,.1);
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  padding: 1rem;
+  width: 50%;
+  border: solid .1em white;
+  border-radius: .5em;
+  color: white;
+  animation: fadeIn 1s;
+}
+
+.formDiv > form > input {
+  border: none;
+  width: 95%;
+}
+
+.infoDivFiles {
+  background-color: gray;
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+  width: 75%;
+  height: 75%;
+  color: #e6e2c5;
+  border: solid 1px #e6e2c5;
+  border-radius: .3em;
+}
+
+.errorDiv {
+  font-family: 'Source Code Pro', monospace;
+  color: var(--neonGreen);
+}
+
+#submitBtn, #registerBtn {
+  margin-top: .5em;
+  background: none;
+  border: solid .1em white;
+  border-radius: .2em;
+  font-family: sans-serif;
+  color: white
+}
+
+#xCloseBtn {
+  margin-top: .5em;
+  background-color: rgba(255, 255, 255, .5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+}
+
+
 /* ====== HOVER EFFECTS ======= */
 
 .salesToReportDiv:hover,
@@ -387,14 +417,16 @@ footer {
 #content1:hover,
 #content2:hover,
 #content3:hover,
-#content4:hover {
+#content4:hover, {
   box-shadow: 0rem 0rem .7rem var(--neonGreen);
   transition: .5s;
 }
 
 button:hover,
 #transformButton:hover,
-#content2 > button:hover {
+#content2 > button:hover,
+#xCloseBtn:hover,
+#filesInfoClick:hover {
   color: #e6e2c5;
   background: var(--neonBlue);
   opacity: .5;
@@ -446,10 +478,7 @@ button:hover,
   100% {opacity: 1;}
 }
 
-@keyframes fadeOut {
-  0% {opacity: 1;}
-  100% {opacity: 0;}
-}
+
 
 @media only screen and (max-width:500px) {
   .mainContainer {

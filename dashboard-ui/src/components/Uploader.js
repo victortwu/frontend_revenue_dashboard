@@ -53,7 +53,7 @@ uploadToAPI = (file) => {
               <p>Drag 'n' drop or click to select</p>
             </div>
             <aside>
-              <h5>COMPLIANT FILES ONLY</h5>
+              <h5 id='filesInfoClick' onClick={()=> this.props.openCompFilesInfo()}>COMPLIANT FILES ONLY</h5>
               <ul>{files}</ul>
             </aside>
           </section>
