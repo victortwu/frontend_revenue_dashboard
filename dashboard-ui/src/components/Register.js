@@ -11,6 +11,7 @@ class Register extends Component {
     }
   }
 
+
 handleUsernameChange =(e)=> {
   console.log(e.target.value)
   this.setState({
@@ -50,12 +51,19 @@ handleSubmit = (e) => {
     return response.json()
   }).then(data=> {
     console.log('Data from register route: ', data)
+    if (data.status === 401) {
+      this.props.closeRegisterForm()
+      alert(`${data.message}`)
+    }
+
     this.setState({
       username: '',
       email: '',
       password: ''
     })
   }).catch(err=> {console.error('Error: ', err)})
+  this.clearForm()
+  this.props.closeRegisterForm()
 }
 
 
@@ -77,7 +85,7 @@ const toggleClass = this.props.showRegisterForm ? 'displayShow' : 'displayNone'
                         <label htmlFor='password'>PASSWORD:</label>
                         <input type='password' id='password' name='password' onChange={(e)=> this.handlePasswordChange(e)} />
 
-                        <button id='addEditBtn' type='submit'>REGISTER</button>
+                        <button id='submitBtn' type='submit'>REGISTER</button>
                     </form>
                     <button id='xCloseBtn' onClick={()=> this.props.closeRegisterForm()}>X</button>
                   </div>

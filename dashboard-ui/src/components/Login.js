@@ -43,17 +43,25 @@ handleSubmit = (e) => {
     return response.json()
   }).then(data => {
     console.log('The data: ', data)
-    this.props.setOwnerId(data)
-    this.setState({
-      username: '',
-      password: ''
-    })
+    if(data.status === 401){
+      alert(`${data.message}`)
+      this.props.logOut()
+    } else {
+      this.props.setOwnerId(data)
+      this.setState({
+        username: '',
+        password: ''
+      })
+    }
   }).catch(err=> {console.error('Error: ', err)})
   this.props.closeLoginForm()
 
 }
 
 render(){
+console.log(this.state.username)
+console.log(this.state.password)
+
 const toggleClass = this.props.showLogInForm ? 'displayShow' : 'displayNone'
 
     return(
@@ -68,7 +76,7 @@ const toggleClass = this.props.showLogInForm ? 'displayShow' : 'displayNone'
                         <label htmlFor='password'>PASSWORD:</label>
                         <input type='password' id='password' name='password' onChange={(e)=> this.handlePasswordChange(e)} />
 
-                        <button id='addEditBtn' type='submit'>LOG IN</button>
+                        <button id='submitBtn' type='submit'>LOG IN</button>
                     </form>
                     <button id='xCloseBtn' onClick={()=> this.props.closeLoginForm()}>X</button>
                   </div>

@@ -22,6 +22,7 @@ class App extends Component {
       showLogInForm: false,
       showRegisterForm: false,
       userId: -1,
+      welcomeName: ''
     }
 
   }
@@ -58,6 +59,18 @@ class App extends Component {
     })
   }
 
+  logOut = () => {
+    console.log('Log me out please!!')
+    fetch(baseURL + 'api/v1/users/logout')
+      .then(response => {
+      return response.json()
+    }).then(
+      this.setState({
+        userId: -1,
+        reports: []
+      })
+    )
+  }
 
   getReports = (dates) => {
     console.log('DATES: ', dates)
@@ -72,10 +85,7 @@ class App extends Component {
           reports: data.data
         })
       })
-
-
-
-}
+    }
 
 
 componentDidMount() {
@@ -84,14 +94,30 @@ componentDidMount() {
 
 render(){
 
-// console.log(this.state.reports)
+const toggleClass =  (this.state.userId !== -1) ? 'displayShow' : 'displayNone'
+
+console.log(this.state.userId)
     return (
       <div className='mainContainer'>
 
           <nav>
               <ul className='navUl'>
-                  <li onClick={() => this.openLoginForm()}>Log In</li>
-                  <li onClick={() => this.openRegisterForm()}>Register</li>
+              {
+                (this.state.userId !== -1)
+                ? <>
+                    <li onClick={()=> this.logOut()}>Log Out</li>
+                    <li>Hi <span id='welcomeName'>{this.state.welcomeName}!</span></li>
+                  </>
+
+                : <>
+                    <li onClick={() => this.openLoginForm()}>Log In</li>
+                    <li onClick={() => this.openRegisterForm()}>Register</li>
+                  </>
+              }
+
+
+
+
                   <li>Change Theme</li>
               </ul>
           </nav>
@@ -112,9 +138,10 @@ render(){
 
           <div id='sideBar'>
             <div class='sideBarContent'>
-
+              <div className={toggleClass}>
                 <CalendarSearchBar reports={this.state.reports} getReports={this.getReports}/>
                 <Uploader getReports={this.getReports}/>
+              </div>
             </div>
           </div>
 
@@ -138,6 +165,7 @@ render(){
             <h5>BUILT BY VICTOR TWU -- JUNE, 2021</h5>
           </footer>
           <Login
+              logOut={this.logOut}
               closeLoginForm={this.closeLoginForm}
               showLogInForm={this.state.showLogInForm}
               baseURL={baseURL}

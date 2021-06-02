@@ -3,10 +3,9 @@ import React from 'react'
 const RetailWholesaleBox = (props) => {
 
 const retailSales = props.reports.filter(item=> item.wholesale === 'false')
-console.log(retailSales)
 
 const wholesale = props.reports.filter(item=> item.wholesale === 'true')
-console.log(wholesale)
+
 
 const totalRetail = retailSales.map(report=> {
   return report.subtotal
@@ -19,7 +18,7 @@ const totalWholesale = wholesale.map(report=> {
 const commission = wholesale.map(report=> {
   return report.commission
 }).reduce((acc, curr)=> acc + curr, 0)
-// NEED TO ADD FEES !!!
+
 const wholesaleToReport = totalWholesale + commission
 
 

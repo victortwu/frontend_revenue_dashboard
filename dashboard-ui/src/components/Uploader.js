@@ -26,16 +26,12 @@ uploadToAPI = (file) => {
       files: []
     })
   }).catch(err => console.error({'Error': err}))
-
-
-// .then(()=> this.props.getReports())
-
 }
 
 
 
   render() {
-    console.log(this.state.files)
+
     const files = this.state.files.map(file => (
       <li key={file.name}>
         {file.name} - {file.size} bytes
