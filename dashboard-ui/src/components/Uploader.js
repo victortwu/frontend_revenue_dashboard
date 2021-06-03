@@ -25,6 +25,9 @@ uploadToAPI = (data) => {
     }
   }).then(response => {
     console.log(response)
+    if (response.status === 500) {
+      alert('This file can not be accepted! Click on COMPLIANT FILES ONLY for more info.')
+    }
   }).then(data=> {
     console.log(data)
     this.setState({
