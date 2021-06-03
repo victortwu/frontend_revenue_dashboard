@@ -6,7 +6,7 @@ const toggleClass = (props.showAppInfo) ? 'displayShow' : 'displayNone'
 
   return(
   <div className={toggleClass}>
-      <div className='modalBackground'>
+      <div onClick={()=> props.closeAppInfo()} className='modalBackground'>
           <div className='modalContainer'>
               <div className='infoDivFiles'>
                   <h3>3rd PARTY ORDER APP DASHBOARD</h3>

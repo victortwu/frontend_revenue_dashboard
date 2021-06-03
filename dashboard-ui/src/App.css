@@ -16,15 +16,26 @@
   --clearFade: rgba(255,255,255,.1);
   --fadedPurple: rgba(72,50,168,.5);
   --soundwaveBlue: rgba(37, 43, 153,.7);
-
+  /* rainbow colors */
+  --pink: #ec87b9;
+  --brightPink: #e75ea3;
+  --yellow: #fbbd4e;
+  --brightYellow: #fdd349;
+  --mint: #8ed1b5;
+  --turquoise: #55cbcb;
+  --lightBlue: #44b0c6;
+  --purple: #757acd;
+  --purplePink: #e272d5;
   color: #e6e2c5;
 }
 
 html {
   background-image: url('./images/background.jpeg');
-  /* background-image: linear-gradient(#1b1b2f, black, #e43f5a, #1f4068, #162447); */
   background-size: cover;
+}
 
+body {
+  background-size: cover;
 }
 
 .mainContainer {
@@ -228,6 +239,38 @@ nav {
   color: #e6e2c5;
 }
 
+/* ============== BACKGROUNDS COMPONENT ========== */
+
+.backgroundsContainer {
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.backgroundsContainer > h5 {
+  opacity: .7;
+}
+
+.backgroundsContainer > div {
+  width: 85%;
+  height: 3rem;
+  margin: .5rem;
+  padding-left: .5rem;
+  display: flex;
+  box-shadow: 0rem 0rem .4rem rgba(255,255,255,.3);
+  border-radius: .3em;
+}
+
+.backgroundsContainer > div:hover {
+  text-shadow: 0rem 0rem .7rem rgba(255,255,255,.8);
+  box-shadow: 0rem 0rem .4rem rgba(255,255,255,.8);
+  transition: .5s;
+  cursor: pointer;
+}
+
 /* ======== SIDEBAR COMPONENT STYLING ======= */
 
 .uploadContainer {
@@ -296,7 +339,6 @@ nav {
   border-radius: .5em;
 }
 
-
 footer {
   grid-area: footer;
   text-align: center;
@@ -358,7 +400,7 @@ footer {
 }
 
 .formDiv {
-  background-color: rgba(255,255,255,.1);
+  background: linear-gradient(#1b1b2f, #1f4068, #162447);
   margin: auto;
   margin-top: 5rem;
   margin-bottom: 8rem;
@@ -417,7 +459,7 @@ footer {
 #content1:hover,
 #content2:hover,
 #content3:hover,
-#content4:hover, {
+#content4:hover {
   box-shadow: 0rem 0rem .7rem var(--neonGreen);
   transition: .5s;
 }

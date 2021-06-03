@@ -31,15 +31,15 @@ uploadToAPI = (file) => {
 
 
   render() {
-
+    console.log(this.state.files)
     const files = this.state.files.map(file => (
+
       <li key={file.name}>
         {file.name} - {file.size} bytes
         <button onClick={()=> {
                                 this.uploadToAPI(file.path)
-
                               }
-                              }>upload</button>
+                          }>upload</button>
       </li>
     ));
 

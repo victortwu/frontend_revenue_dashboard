@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-
+// This whole component is pretty much from react-datepicker
 
 const CalendarSearchBar = (props) => {
 
@@ -23,7 +23,7 @@ const CalendarSearchBar = (props) => {
           setDateRange(update);
         }}
         isClearable={true}
-        
+
       />
       <button onClick={
         ()=> {

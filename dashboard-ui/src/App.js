@@ -12,6 +12,7 @@ import Register from './components/Register'
 import CompliantFilesInfo from './components/CompliantFilesInfo'
 import AppInfo from './components/AppInfo'
 import GetBeer from './components/GetBeer'
+import Backgrounds from './components/Backgrounds'
 import './App.css';
 
 
@@ -114,6 +115,8 @@ class App extends Component {
     )
   }
 
+
+
   getReports = (dates) => {
     console.log('DATES: ', dates)
 
@@ -158,7 +161,7 @@ console.log(this.state.userId)
               }
 
                   <li onClick={() => this.openAppInfo()}>ABOUT THIS APP</li>
-                  <li>Change Theme</li>
+
               </ul>
           </nav>
 
@@ -183,6 +186,7 @@ console.log(this.state.userId)
                 <Uploader openCompFilesInfo={this.openCompFilesInfo} getReports={this.getReports}/>
               </div>
             </div>
+            <Backgrounds />
           </div>
 
           <div id='content1'>

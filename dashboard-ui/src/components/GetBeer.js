@@ -6,7 +6,7 @@ const toggleClass = (props.showCoorsError) ? 'displayShow' : 'displayNone'
 
   return(
   <div className={toggleClass}>
-      <div className='modalBackground'>
+      <div onClick={()=> props.closeCoorsError()} className='modalBackground'>
         <div className='errorDiv'>
           <p>-</p>
           <p>-</p>

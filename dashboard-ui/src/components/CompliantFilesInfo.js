@@ -6,7 +6,7 @@ const toggleClass = (props.showCompFilesInfo) ? 'displayShow' : 'displayNone'
 
   return(
   <div className={toggleClass}>
-      <div className='modalBackground'>
+      <div onClick={()=> props.closeCompFilesInfo()} className='modalBackground'>
           <div className='modalContainer'>
               <div className='infoDivFiles'>
                   <h3>INFO ABOUT FILES</h3>
