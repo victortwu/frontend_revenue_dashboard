@@ -4,44 +4,64 @@ import Dropzone from 'react-dropzone';
 class Uploader extends Component {
   constructor(props) {
     super(props);
-    this.onDrop = (files) => {
-      this.setState({files})
-    };
+    // this.onDrop = (files) => {
+    //
+    //   this.setState({files})
+    // };
     this.state = {
-      files: []
+      files: [],
+      fileData: '',
     };
   }
 
-uploadToAPI = (file) => {
-  console.log('uploadToAPI called...')
-  console.log('Here is the file: ', file)
-  fetch('http://localhost:8000/api/v1/reports/' + file, {
+uploadToAPI = (data) => {
+
+  fetch('http://localhost:8000/api/v1/reports/', {
     credentials: 'include',
-    method: 'POST'
+    method: 'POST',
+    body: data,
+    headers: {
+      'Content-Type': 'text/csv'
+    }
   }).then(response => {
     console.log(response)
   }).then(data=> {
     console.log(data)
     this.setState({
-      files: []
+      files: [],
+      fileData: ''
     })
   }).catch(err => console.error({'Error': err}))
 }
 
+onDrop = (files) => {
+  console.log(files)
+  const blob = new Blob(files)
+  const textBlob = blob.text()
+  .then(response=>
+    this.setState({
+      files: files,
+      fileData: response
+    })
+  )
+}
 
 
   render() {
-    console.log(this.state.files)
+
+    // console.log(this.state.fileData)
+    console.log(typeof this.state.fileData)
+
     const files = this.state.files.map(file => (
 
       <li key={file.name}>
         {file.name} - {file.size} bytes
-        <button onClick={()=> {
-                                this.uploadToAPI(file.path)
-                              }
-                          }>upload</button>
+        <button onClick={()=> { this.uploadToAPI(this.state.fileData) } }>upload</button>
       </li>
     ));
+
+
+
 
     return (
       <Dropzone onDrop={this.onDrop}>
