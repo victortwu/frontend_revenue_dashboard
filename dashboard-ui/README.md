@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+3rd PARTY ORDER APP DASHBOARD FOR THE RESTAURANT OWNER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src='/src/images/Screen Shot 2021-06-03 at 7.09.53 PM.png'/>
 
-## Available Scripts
+APP INFO:
 
-In the project directory, you can run:
+Problem: third party vendors like UberEats and Doordash all have DIFFERENT sets of reporting data.
 
-### `npm start`
+In order to file tax returns or create other types of reports, a restaurant owner/manager must log in to each vendor's portal and perform calculations one by one.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This can be up to several vendors!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This dashboard app parses Doordash, UberEats, Postmates, Grubhub and Kiosk Buddy's data
+and provides the client with the MOST useful information in ONE dashboard.
 
-### `npm test`
+In fact, this iteration is set to provide instant Department of Revenue reporting information for restaurants in the Seattle, King County, Washington State area.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+.....it also has SOUNDWAVE
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+USER STORY:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+User can log in and click on search bar to search a date range.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The data in the specified date range will render on the dashboard.
 
-### `npm run eject`
+User can also upload transaction csv files from Doordash, Grubhub, UberEats and Postmates by clicking or dragging and dropping.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The User can also choose different backgrounds.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Since the user will be saving a lot of time from using this app, a procrastination feature has been added.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+User can click the 'Transform' button and transform Soundwave, the Procrastinatacon.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When user logs out or is logged out, search bar and uploading file feature is unavailable.
