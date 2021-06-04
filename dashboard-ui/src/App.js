@@ -16,7 +16,16 @@ import Backgrounds from './components/Backgrounds'
 import './App.css';
 
 
-let baseURL = 'http://localhost:8000/'
+console.log(process.env.NODE_ENV)
+
+let baseURL = ''
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:8000/'
+} else {
+  baseURL = 'https://project4-dashboard-app.herokuapp.com/'
+}
+console.log('current base URL:', baseURL)
+
 
 class App extends Component {
   constructor() {
@@ -183,7 +192,7 @@ console.log(this.state.userId)
             <div class='sideBarContent'>
               <div className={toggleClass}>
                 <CalendarSearchBar reports={this.state.reports} getReports={this.getReports}/>
-                <Uploader openCompFilesInfo={this.openCompFilesInfo} getReports={this.getReports}/>
+                <Uploader baseURL={baseURL} openCompFilesInfo={this.openCompFilesInfo} getReports={this.getReports}/>
               </div>
             </div>
             <Backgrounds />

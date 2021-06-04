@@ -16,7 +16,7 @@ class Uploader extends Component {
 
 uploadToAPI = (data) => {
 
-  fetch('http://localhost:8000/api/v1/reports/', {
+  fetch(this.props.baseURL + 'api/v1/reports/', {
     credentials: 'include',
     method: 'POST',
     body: data,
