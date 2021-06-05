@@ -53,7 +53,7 @@ onDrop = (files) => {
   render() {
 
     // console.log(this.state.fileData)
-    console.log(typeof this.state.fileData)
+    console.log(this.state.fileData)
 
     const files = this.state.files.map(file => (
 
