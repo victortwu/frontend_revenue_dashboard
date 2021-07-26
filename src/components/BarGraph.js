@@ -1,11 +1,12 @@
 import React from 'react'
 
 const BarGraph =(props)=> {
+
   // ---- SEPARATE BY VENDOR -----
   const doorDash = props.reports.filter(report=> report.vendor === 'Doordash')
 
   const uberEats = props.reports.filter(report=> report.vendor === 'UberEats')
-
+  
   const postmates = props.reports.filter(report=> report.vendor === 'Postmates')
 
   const grubhub = props.reports.filter(report=> report.vendor === 'Grubhub')
@@ -18,7 +19,7 @@ const BarGraph =(props)=> {
   const uberEatsTotal = uberEats.map(item=> {
     return item.subtotal
   }).reduce((acc, curr) => acc + curr, 0)
-
+  console.log(uberEatsTotal)
   const postmatesTotal = postmates.map(item=> {
     return item.subtotal
   }).reduce((acc, curr) => acc + curr, 0)
