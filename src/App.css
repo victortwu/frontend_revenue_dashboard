@@ -115,22 +115,26 @@ nav {
 /* =========== SOUNDWAVE COMPONENT ============= */
 
 #soundwaveContainer {
+  position: relative;
   background-image: url('./images/soundwave_standing.png');
   display: block;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 80vh;
+  width: 100%;
   animation: none;
 
 }
 
 #transformButton {
-  margin-top: 3%;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  /* margin-top: 3%; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 6em;
+  height: 4em;
   width: 10em;
   font-size: .5em;
   background: none;
@@ -525,10 +529,9 @@ button:hover,
 @media only screen and (max-width:500px) {
   .mainContainer {
     grid-template-columns: 1fr;
-    grid-template-rows: .4fr .4fr 1fr 1fr 1fr 1fr 1fr 1fr 0.4fr;
+    grid-template-rows: .4fr 1fr 1fr 1fr 1fr 1fr 1fr 0.4fr;
     grid-template-areas:
       'nav'
-      'sideBar'
       'main1'
       'main2'
       'content1'
@@ -536,13 +539,27 @@ button:hover,
       'content3'
       'content4'
       'footer';
+    }
 
-  }
   .navUl > li {
     padding: .2em;
     font-size: .7em;
   }
-  #soundwaveContainer, #transformButton {
+  #sideBar {
     display: none;
+  }
+  .main1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'salesToReportDiv'
+      'soundwaveContainer'
+  }
+  .salesToReportDiv {
+    grid-area: salesToReportDiv;
+  }
+  #soundwaveContainer {
+    grid-area: soundwaveContainer;
   }
 }
