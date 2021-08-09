@@ -13,6 +13,7 @@ import CompliantFilesInfo from './components/CompliantFilesInfo'
 import AppInfo from './components/AppInfo'
 import GetBeer from './components/GetBeer'
 import Backgrounds from './components/Backgrounds'
+import OnloadMessage from './components/OnloadMessage'
 import './App.css';
 
 
@@ -37,6 +38,7 @@ class App extends Component {
       showCompFilesInfo: false,
       showAppInfo: false,
       showCoorsError: false,
+      showOnloadModal: false,
       userId: -1,
       welcomeName: ''
     }
@@ -103,6 +105,20 @@ class App extends Component {
     })
   }
 
+  openOnloadModal = () => {
+    this.setState({
+      showOnloadModal: true
+    })
+  }
+
+  closeOnloadModal = () => {
+    setTimeout(() => {
+      this.setState({
+        showOnloadModal: false
+      })
+    }, 3000)
+  }
+
   setUserId = (data) => {
     console.log('setOwnerId() called: --> ', data)
     this.setState({
@@ -144,6 +160,9 @@ class App extends Component {
 
 componentDidMount() {
   console.log('component mounting...')
+  this.getReports('Thu Apr 01 2021 00:00:00 GMT-0700 (Pacific Daylight Time),Sat May 01 2021 00:00:00 GMT-0700 (Pacific Daylight Time)')
+  this.openOnloadModal()
+  this.closeOnloadModal()
 }
 
 render(){
@@ -240,6 +259,9 @@ console.log(this.state.userId)
           <GetBeer
               showCoorsError={this.state.showCoorsError}
               closeCoorsError={this.closeCoorsError}
+          />
+          <OnloadMessage
+              showOnloadModal={this.state.showOnloadModal}
           />
       </div>
     );
