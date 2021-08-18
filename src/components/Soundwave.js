@@ -1,76 +1,51 @@
-import React, { Component } from 'react'
+import { useState, useRef } from 'react'
 import transforming from '../images/transforming.mp3'
 
 
+const Soundwave = () => {
 
+  const soundwaveContainerRef = useRef()
+  const transformMP3ref = useRef()
+  const [robot, setRobot] = useState(true)
 
-class Soundwave extends Component {
-  constructor(){
-    super()
-    this.state = {
-      robot: true
-    }
-  }
-
-    playSound= () => {
-      const audioElement = document.getElementsByClassName('audio-element')[0]
+    const playSound = () => {
+      const audioElement = transformMP3ref.current
       audioElement.play()
     }
 
-    transform =(animation)=> {
-      document.getElementById('soundwaveContainer').style.animation = animation
+    const transform = (animation) => {
+      soundwaveContainerRef.current.style.animation = animation
     }
 
-    toggleFalse=()=> {
-      this.setState({
-        robot: false
-      })
-    }
+  const transformToTapeRecorder = 'transformToTapeRecorder 1.5s linear forwards'
+  const transformToRobot = 'transformToRobot 1.5s linear forwards'
 
-    toggleTrue=()=> {
-      this.setState({
-        robot: true
-      })
-    }
+  return(
+        <>
+          <audio ref={transformMP3ref} className='audio-element'>
+            <source src={transforming}></source>
+          </audio>
 
-  render(){
-    const transformToTapeRecorder = 'transformToTapeRecorder 1.5s linear forwards'
-    const transformToRobot = 'transformToRobot 1.5s linear forwards'
+          <div ref={soundwaveContainerRef} id='soundwaveContainer'>
 
+              {
+                (robot)
+                ? <div id='transformButton' onClick={()=> {
+                  playSound()
+                  transform(transformToTapeRecorder)
+                  setRobot(false)
+                }}><span>TRANSFORM</span></div>
 
-    return(
-      <>
-      <audio className='audio-element'>
-        <source src={transforming}></source>
-      </audio>
+                : <div id='transformButton' onClick={()=> {
+                  playSound()
+                  transform(transformToRobot)
+                  setRobot(true)
+                }}><span>TRANSFORM</span></div>
+              }
 
-
-
-
-      <div id='soundwaveContainer'>
-      {
-        (this.state.robot)
-        ? <div id='transformButton' onClick={()=> {
-          this.playSound()
-          this.transform(transformToTapeRecorder)
-          this.toggleFalse()
-        }}><span>TRANSFORM</span></div>
-
-        : <div id='transformButton' onClick={()=> {
-          this.playSound()
-          this.transform(transformToRobot)
-          this.toggleTrue()
-        }}><span>TRANSFORM</span></div>
-
-      }
-
-      </div>
-
-
-      </>
+          </div>
+        </>
       )
-    }
-
-  }
+}
 
 export default Soundwave
